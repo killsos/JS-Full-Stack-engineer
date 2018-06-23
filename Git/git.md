@@ -34,3 +34,12 @@
 1.5 查看所有配置
 
         $ git config --list
+
+1.6 初始化git
+    
+    先创建一个空目录 ，然后进入此目录
+    点击右键选择Git-Bash打开命令行
+    输入git init命令把这个目录变成Git可以管理的仓库
+    $ git init
+    
+    通过ls -al命令查看所有文件
