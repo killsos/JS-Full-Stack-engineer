@@ -2,6 +2,9 @@
 
 #### 介绍
 
+[Git参考](http://www.zhufengpeixun.cn/docs/html/Git/git%E5%85%A5%E9%97%A8.html)
+
+
 1.0 安装
 
     brew install git
