@@ -19,3 +19,18 @@
 
     历史区/版本库
 
+1.3 配置git用户和邮箱
+
+    $ git config --global user.name "你的github用户名"    
+    $ git config --global user.email "你的github邮箱"
+
+不配置用户名和邮箱的话无法提交,因为git不知道你是谁
+
+1.4 查看配置
+
+    $ git config --global user.name 
+    $ git config --global user.email
+
+1.5 查看所有配置
+
+        $ git config --list
