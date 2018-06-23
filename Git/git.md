@@ -73,4 +73,4 @@
 
         $ git log
         
-    修改时通过git status查看当前状态
+        修改时通过git status查看当前状态
