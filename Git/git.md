@@ -85,28 +85,30 @@
 
 工作区和暂存区 
 
-    $ git diff
+    $ git diff 
 
 暂存区和历史区
 
-    $ git diff --cached（--staged
+    $ git diff --cached
+    $ git diff --staged
 
 工作区和版本库
 
-    $ git diff master
+    $ git diff 分支名
 
 #### 1.9 撤销
 
-撤销回git add的内容
-    
+- 从暂存区中将工作区内容覆盖掉 
 
+    $ git checkout "文件名"
+    
     $ git reset Head "文件名"
 
 撤回文件
     
     先从缓存区撤销,缓存区无内容，从历史区域撤销
     
-    $ git checkout "文件名"
+    
 
     有的时候我们希望提交时合并到上一次的提交 git commit --amend
 
