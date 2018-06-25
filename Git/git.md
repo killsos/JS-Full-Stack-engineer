@@ -74,3 +74,20 @@
         $ git log
         
         修改时通过git status查看当前状态
+
+
+1.8 git diff
+
+不同区的代码比较
+
+工作区和暂存区
+
+    $ git diff
+
+暂存区和历史区
+
+    $ git diff --cached（--staged
+
+工作区和版本库
+
+    $ git diff mas
