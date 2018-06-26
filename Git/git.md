@@ -202,25 +202,34 @@ $ git checkout "文件名"
     $ git pull
 
 #### 1.14 分支
-    git branch 
-    查看所有分支
+    git branch 查看所有分支  
 
-    git branch 创建分支
+    git branch branchName 创建分支 
 
-    git checkout a
-    git checkout -b c切换分支
+    git checkout branchName  切换分支 
+
+    git checkout -b branchName  先创建分支并切换到创建的分支 
+
+    git branch -d a 删除分支
+    
+    git branch -D a 删除分支
+
+    删除分支的时候 不能删除当前所在的分支
     
     在master  git merge
-    
-    git checkout b
     
     git branch --merged 合并了哪些分支
     
     git branch --no-merged 合并了哪些分支
-    
-    git branch -d a 删除分支
-    
-    git branch -D a 删除分支
+
+- 文件修改时候切换分支
+
+    $ git stash
+
+    暂存文件修改
+
+    分支有更改不能直接切换 可以提交更改或者暂存更改
+1. 工作区修改后切换分支 提交给master  index 123
 
 #### 1.15 tag版本
 
