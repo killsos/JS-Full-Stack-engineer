@@ -222,7 +222,7 @@ $ git checkout "文件名"
     
     git branch --no-merged 合并了哪些分支
 
-- 文件修改时候切换分支
+- 文件修改时候切换分支 
 
     $ git stash
 
