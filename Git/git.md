@@ -139,14 +139,17 @@ $ git checkout "文件名"
 
     $ git checkout commit_id filename 某个文件
 
-通过版本id恢复 
+- 回滚历史版本
 
     $ git reset --hard commit_id
 
     --hard 从历史区的从版本ID恢复过来 会彻底覆盖暂存区和工作区
 
-恢复未来 
- 查看当时回滚时的版本 
+    $ git reset --hard HEAD^
+
+    HEAD^ 代表当前版本的上一次
+
+- 查看所有版本ID 
 
     $ git reflog
 
