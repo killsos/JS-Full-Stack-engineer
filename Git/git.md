@@ -186,20 +186,21 @@ $ git checkout "文件名"
 
 #### 1.13 代码的合并 
 
-1 git fetch 
-拉取
+1 git fetch 拉取
     
     $ git fetch
 
 拉取过来手动合并
 
     $ git diff master origin/master
+     diff 本地master分支 与 远程master分支
+     
     $ git merge origin/master
+    本地master合并远程master
 
-2 git pull
-拉取并合并
+2 git pull 拉取并合并
 
-    $ git pull
+    $ git pull  
 
 #### 1.14 分支
     git branch 查看所有分支  
@@ -215,12 +216,6 @@ $ git checkout "文件名"
     git branch -D a 删除分支
 
     删除分支的时候 不能删除当前所在的分支
-    
-    在master  git merge
-    
-    git branch --merged 合并了哪些分支
-    
-    git branch --no-merged 合并了哪些分支
 
 - 文件修改时候切换分支 
 ```
@@ -239,6 +234,37 @@ $ git checkout "文件名"
     还原之前用stash暂存的内容pop
 ```
 
+- 合并分支 
+
+```
+    git merge 原理:
+    先创建主干 在主干的基础上添加一个分支
+    在分支上进行提交 切换到主干合并分支
+
+    合并的所谓"冲突"---就是对一个文件的修改
+    
+    git branch --merged 合并了哪些分支
+    
+    git branch --no-merged 合并了哪些分支
+```
+
 #### 1.15 tag版本
 
     $ git tag v.10
+
+#### 1.16 查看log图谱
+
+    $ git log --graph 
+    详版
+    $ git log --graph --oneline
+    简版
+
+#### 1.17 关联远程仓库
+
+    $ git remote add 仓库别名 仓库地址
+    
+    仓库别名习惯用 origin 
+
+    $ git push -u orgin master
+
+    push orgin仓库的master分支 这里也可以自己设定别的分支 不一定master分支
