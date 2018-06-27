@@ -200,7 +200,8 @@ $ git checkout "文件名"
 
 2 git pull 拉取并合并
 
-    $ git pull  
+    $ git pull  origin master
+    拉取远程的master分支与当前所在本地分支合并
 
 #### 1.14 分支
     git branch 查看所有分支  
