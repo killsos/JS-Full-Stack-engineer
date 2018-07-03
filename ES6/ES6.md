@@ -42,7 +42,7 @@ ES6新增 **let const** 两个声明关键字 都会是块级作用域
 ```javascript
 
 if(true){
-    let name = 'zfpx';
+    let name = 'killsos';
 }
 console.log(name);// ReferenceError: name is not defined
 
@@ -53,7 +53,7 @@ console.log(name);// ReferenceError: name is not defined
 ```javascript
 
 if(true){
-    let name = 'zfpx';
+    let name = '';
 }
 console.log(window.name);
 
@@ -191,7 +191,7 @@ console.log(x, y, z);
 let [x, [y,z]] = [1, [2.1, 2.2]];
 console.log(x,y,z);
 
-let [json,arr,num] = [{name:'zfpx'},[1,2],3];
+let [json,arr,num] = [{name:''},[1,2],3];
 console.log(json,arr,num);
 	
 ```
@@ -392,3 +392,62 @@ let rest = function(a,...rest){
 rest(1,2,3);  // [ 2, 3 ]
 
 ```
+
+### 5.4 解构参数
+
+```javascript
+let destruct = function({name,age}){
+    console.log(name,age);
+}
+destruct({name:'killsos',age:6});
+
+```
+### 5.5 函数的名字
+
+ECMAScript 6 给函数添加了一个name属性
+
+```javascript
+var desc = function descname(){}
+console.log(desc.name);  // descname
+
+```
+
+### 5.6 箭头函数
+
+箭头函数简化了函数的的定义方式，一般以 "=>" 操作符左边为输入的参数，而右边则是进行的操作以及返回的值inputs=>output
+
+```javascript
+[1,2,3].forEach(val => console.log(val)););
+
+```
+
+> 输入参数如果多于一个要用()包起来，函数体如果有多条语句需要用{}包起来
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
