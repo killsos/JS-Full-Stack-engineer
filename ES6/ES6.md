@@ -426,6 +426,24 @@ console.log(desc.name);  // descname
 
 **箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。 正是因为它没有this，从而避免了this指向的问题。**
 
+```javascript
+var person = {
+    name: 'zfpx',
+    getName: function() {
+        setTimeout(function() { console.log(this); }, 1000);
+        //在浏览器执行的话this指向window
+
+        // ES5解决办法 使用bind
+        setTimeout(function() { console.log(this); }.bind(this), 1000);
+
+        setTimeout(() => console.log(this), 1000);
+        //在浏览器执行的话this指向person
+    }
+}
+person.getName();
+
+```
+
 
 
 
