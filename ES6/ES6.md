@@ -466,6 +466,7 @@ console.log(newArr[1] === oldArr[1]); // true
 of是为了将一组数值,转换为数组
 
 	console.log(Array(3), Array(3).length);
+	
 	console.log(Array.of(3), Array.of(3).length);
 
 
