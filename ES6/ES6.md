@@ -61,11 +61,12 @@ console.log(window.name);
 
 ```
 
-####1.2.3 for循环中也可以使用i
+#### 1.2.3 for循环中也可以使用i
 
 ```javascript
 
-// 嵌套循环不会相互影响
+	// 嵌套循环不会相互影响
+	
     for (let i = 0; i < 3; i++) {
         console.log("out", i);
         for (let i = 0; i < 2; i++) {
