@@ -345,3 +345,50 @@ function ajax(url,method='GET',dataType="json"){
 }
 
 ```
+
+### 5.2 展开操作符
+
+把...放在数组前面可以把一个数组进行展开,可以把一个数组直接传入一个函数而不需要使用**apply**
+
+```javascript
+
+//传入参数
+let print = function(a,b,c){
+    console.log(a,b,c);
+}
+print([1,2,3]);
+print(...[1,2,3]);
+
+// 可以替代apply
+var m1 = Math.max.apply(null, [8, 9, 4, 1]);
+var m2 = Math.max(...[8, 9, 4, 1]);
+
+// 可以替代concat
+var arr1 = [1, 3];
+var arr2 = [3, 5];
+var arr3 = arr1.concat(arr2);
+
+var arr4 = [...arr1, ...arr2];
+console.log(arr3,arr4);
+
+//类数组的转数组
+function max(a,b,c) {
+    console.log(Math.max(...arguments));
+}
+max(1, 3, 4);
+
+```
+
+
+### 5.3 剩余操作符
+
+剩余操作符可以把其余的参数的值都放到一个叫rest的数组里面
+
+```javascript
+let rest = function(a,...rest){
+    console.log(a,rest);
+}
+
+rest(1,2,3);  // [ 2, 3 ]
+
+```
