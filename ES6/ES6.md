@@ -469,8 +469,11 @@ of是为了将一组数值,转换为数组
 	
 	console.log(Array.of(3), Array.of(3).length);
 
+### 6.3 copyWithin
 
+Array.prototype.copyWithin(target, start = 0, end = this.length) 覆盖目标的下标 开始的下标 结束的后一个的下标
 
+	[1, 2, 3, 4, 5].copyWithin(0, 1, 2);
 
 
 
