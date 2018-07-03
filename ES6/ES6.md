@@ -31,7 +31,7 @@ for (var i = 0; i < 3; i++) {
 
 ```
 
-### 块级作用域 block scope
+### 1.2 块级作用域 block scope
 
 ES6新增 **let const** 两个声明关键字 都会是块级作用域
 
