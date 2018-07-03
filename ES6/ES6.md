@@ -10,7 +10,7 @@ ES6增加了**块级作用域**
 
 1. var没有块级作用域，定义后在当前闭包中都可以访问，如果变量名重复，就会覆盖前面定义的变量，并且也有可能被其他人更改。
 
-```
+```javascript
 if (true) {
 	var a = 'a'; 
 }
@@ -20,7 +20,7 @@ console.log(a) // undefined
 
 2. var在for循环标记变量共享，一般在循环中使用的i会被共享，其本质上也是由于没有块级作用域造成的
 
-```
+```javascript
 for (var i = 0; i < 3; i++) {
      setTimeout(function () {
          alert(i);
