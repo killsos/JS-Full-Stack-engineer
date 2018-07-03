@@ -444,10 +444,29 @@ person.getName();
 
 ```
 
+## 6. 数组的新方法
 
+### 6.1 from
 
+将一个数组或者类数组变成数组,会复制一份  **浅复制**
 
+```javascript
+let oldArr = [1, [2, 3]];
+let newArr = Array.from(oldArr);
 
+console.log('====================================');
+console.log(newArr === oldArr); // false
+console.log('====================================');
+
+console.log(newArr[1] === oldArr[1]); // true
+
+```
+### 6.2 Array.of
+
+of是为了将一组数值,转换为数组
+
+	console.log(Array(3), Array(3).length);
+	console.log(Array.of(3), Array.of(3).length);
 
 
 
