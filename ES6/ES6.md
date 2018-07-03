@@ -185,23 +185,135 @@ console.log(name,age);
 
 ```javascript
 
-	let [x, [y], z] = [1, [2.1, 2.2]];
-    console.log(x, y, z);
+let [x, [y], z] = [1, [2.1, 2.2]];
+console.log(x, y, z);
 
-    let [x, [y,z]] = [1, [2.1, 2.2]];
-    console.log(x,y,z);
+let [x, [y,z]] = [1, [2.1, 2.2]];
+console.log(x,y,z);
 
-    let [json,arr,num] = [{name:'zfpx'},[1,2],3];
-    console.log(json,arr,num);
+let [json,arr,num] = [{name:'zfpx'},[1,2],3];
+console.log(json,arr,num);
 	
 ```
 
+### 3.3 省略赋值
+```javascript
+let [, , x] = [1, 2, 3];
+console.log(x);
+```
+
+### 3.4 解构对象
+```javascript
+var obj = {name:'ql',age:18};
+//对象里的name属性的值会交给name这个变量，age的值会交给age这个变量
+
+var {name,age} = obj;
+
+//对象里的name属性的值会交给myname这个变量，age的值会交给myage这个变量
+
+let {name: myname, age: myage} = obj;
+
+console.log(name,age,myname,myage);
+```
+
+### 3.5 默认值
+
+在赋值和传参的时候可以使用默认值
+
+```javascript
+let [a = "a", b = "b", c =new Error('C必须指定')] = [1, , 3];
+console.log(a, b, c);
+
+function ajax (options) {
+    var method = options.method || "get";
+    var data = options.data || {};
+    //.....
+}
 
 
+function ajax ({method = "get", data}) {
+    console.log(arguments);
+}
 
 
+ajax({
+    method: "post",
+    data: {"name": "ql"}
+});
 
+// { '0': { method: 'post', data: { name: 'ql' } } }
 
+```
 
+## 4. 字符串
 
+### 4.1 模板字符串
+模板字符串用反引号(数字1左边的那个键)包含，其中的变量用${}括起来  
 
+```javascript
+其中的变量会用变量的值替换掉
+var name = 'killsos',age = 8;
+let desc = `${name} is ${age} old!`;
+console.log(desc);
+
+//所有模板字符串的空格和换行，都是被保留的
+var str = `<ul>
+<li>a</li>
+<li>b</li>
+</ul>`;
+console.log(str);
+
+```
+
+```javascript
+function replace(desc){
+  return desc.replace(/\$\{([^}]+)\}/g,function(matched,key){
+    return eval(key);
+  });
+}
+
+```
+
+### 4.2 带标签的模板字符串
+可以在模板字符串的前面添加一个标签，这个标签可以去处理模板字符串 标签其实就是一个函数,函数可以接收两个参数,一个是strings,就是模板字符串里的每个部分的字符 还有一个参数可以使用rest的形式values,这个参数里面是模板字符串里的值
+
+```javascript
+var name = 'killsos',age = 8;
+function desc(strings,...values){
+    console.log(strings,values);
+}
+desc`${name} is ${age} old!`;
+
+// strings [ '', ' is ', ' old!' ]
+
+```
+
+### 4.3 字符串新方法
+
+- includes()：返回布尔值，表示是否找到了参数字符串
+
+- startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部
+
+- sendsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部
+
+```javascript
+
+var s = 'killoss';
+s.startsWith('k') // true
+s.endsWith('s') // true
+s.includes('l') // true
+
+```
+
+第二个参数，表示开始搜索的位置
+
+```javascript
+
+var s = 'killsos';
+console.log(s.startsWith('k',2)); // true
+console.log(s.endsWith('s',2)); // true
+console.log(s.includes('l',2)); // false
+
+```
+
+> endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束
