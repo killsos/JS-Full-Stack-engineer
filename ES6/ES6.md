@@ -64,7 +64,6 @@ console.log(window.name);
 #### 1.2.3 for循环中也可以使用i
 
 ```javascript
-
 	// 嵌套循环不会相互影响
 	
     for (let i = 0; i < 3; i++) {
@@ -73,6 +72,35 @@ console.log(window.name);
             console.log("in", i);
         }
     }
+```
 
+#### 1.2.4 重复定义会报错 
+```javascript
+
+if(true){
+    let a = 1;
+    let a = 2; //Identifier 'a' has already been declared
+}
 
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
