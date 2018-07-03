@@ -83,7 +83,39 @@ if(true){
 }
 
 ```
+#### 1.2.5 不存在变量的预解释
+```javascript
 
+for (let i = 0; i < 2; i ++){
+    console.log('inner',i);
+    let i = 100;
+}
+
+//  i is not defined
+
+```
+
+#### 1.2.6 闭包的新写法
+以前  
+
+```javascript
+
+;(function () {
+
+})();
+
+
+```
+现在
+
+```javascript
+
+	{
+	
+	}
+
+
+```
 
 
 
