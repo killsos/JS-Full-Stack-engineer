@@ -118,7 +118,21 @@ for (let i = 0; i < 2; i ++){
 ```
 
 
+## 2. 常量
 
+使用**const**我们可以去声明一个常量，常量一旦赋值就不能再修改了
+
+常量名 全部是大写
+
+### 2.1 常量不能重新赋值 
+
+```javascript
+const MY_NAME = 'killsos';
+MY_NAME = 'ql'; //Assignment to constant variable
+
+```
+
+### 2.2 变量值可改变
 
 
 
