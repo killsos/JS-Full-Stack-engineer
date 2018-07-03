@@ -269,3 +269,10 @@ $ git checkout "文件名"
     $ git push -u orgin master
 
     push orgin仓库的master分支 这里也可以自己设定别的分支 不一定master分支
+
+#### 1.18 设置gh-pages分支来发布静态页
+
+- 在项目中创建一个gh-ages的分支
+- 将分支提到线上仓库
+- 在该仓库的settings 找到 Github Pages选项 进行设置
+
