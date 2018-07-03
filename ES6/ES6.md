@@ -133,11 +133,53 @@ MY_NAME = 'ql'; //Assignment to constant variable
 ```
 
 ### 2.2 变量值可改变
+其实const不改变的是常量的内存地址不变
+因为非对象的数据类型 每次都是生成一个新的内存地址 所以不可以  
 
+但是对于对象类型的值可以改变的  
 
+注意const限制的是不能给变量重新赋值，而变量的值本身是可以改变的,下面的操作是可以的   
 
+```javascript
+const names = ['ql'];
+names.push('killsos');
+console.log(names);
 
+```
 
+### 2.3 不同的块级作用域可以多次定义
+
+```javascript
+const A = "0";
+{
+    const A = "A";
+    console.log(A)
+}
+{
+    const A = "B";
+    console.log(A)
+}
+console.log(A)
+
+```
+
+## 3. 解构
+
+### 3.1 解析数组
+
+解构意思就是分解一个东西的结构,可以用一种类似数组的方式定义N个变量，可以将一个数组中的值按照规则赋值过去
+
+解构 数组按位置  对象按属性名  
+
+```javascript
+
+var [x,y] = ['ql',18];
+console.log(x,y);
+
+var [name,age] = {name:'killsos',age:18};
+console.log(name,age);
+
+```
 
 
 
