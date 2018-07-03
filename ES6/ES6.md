@@ -317,3 +317,14 @@ console.log(s.includes('l',2)); // false
 ```
 
 > endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束
+
+
+### 4.4 repeat 
+
+repeat方法返回一个新字符串，表示将原字符串重复n次
+
+```javascript
+'x'.repeat(3);  // xxx
+'x'.repeat(0);
+
+```
