@@ -328,3 +328,20 @@ repeat方法返回一个新字符串，表示将原字符串重复n次
 'x'.repeat(0);
 
 ```
+
+## 5. 函数
+
+### 5.1 默认参数
+
+可以给定义的函数接收的参数设置默认的值 在执行这个函数的时候，如果不指定函数的参数的值，就会使用参数的这些默认的值
+ 
+
+```javascript
+
+function ajax(url,method='GET',dataType="json"){
+  console.log(url);
+  console.log(method);
+  console.log(dataType);
+}
+
+```
