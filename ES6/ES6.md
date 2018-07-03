@@ -311,7 +311,7 @@ s.includes('l') // true
 
 var s = 'killsos';
 console.log(s.startsWith('k',2)); // true
-console.log(s.endsWith('s',2)); // true
+console.log(s.endsWith('i',2)); // true
 console.log(s.includes('l',2)); // false
 
 ```
