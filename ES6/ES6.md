@@ -163,13 +163,13 @@ console.log(A)
 
 ```
 
-## 3. 解构
+## 3. 解构  
 
+解构 数组按位置  对象按属性名 
+  
 ### 3.1 解析数组
 
 解构意思就是分解一个东西的结构,可以用一种类似数组的方式定义N个变量，可以将一个数组中的值按照规则赋值过去
-
-解构 数组按位置  对象按属性名  
 
 ```javascript
 
@@ -181,7 +181,20 @@ console.log(name,age);
 
 ```
 
+### 3.2 嵌套赋值
 
+```javascript
+
+	let [x, [y], z] = [1, [2.1, 2.2]];
+    console.log(x, y, z);
+
+    let [x, [y,z]] = [1, [2.1, 2.2]];
+    console.log(x,y,z);
+
+    let [json,arr,num] = [{name:'zfpx'},[1,2],3];
+    console.log(json,arr,num);
+	
+```
 
 
 
