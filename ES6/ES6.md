@@ -36,3 +36,42 @@ for (var i = 0; i < 3; i++) {
 ES6新增 **let const** 两个声明关键字 都会是块级作用域
 
 在用var定义变量的时候，变量是通过闭包进行隔离的，现在用了let，不仅仅可以通过闭包隔离，还增加了一些块级作用域隔离。 块级作用用一组大括号定义一个块,使用 let 定义的变量在大括号的外面是访问不到的
+
+####1.2.1 实现块级作用域
+
+```javascript
+
+if(true){
+    let name = 'zfpx';
+}
+console.log(name);// ReferenceError: name is not defined
+
+```
+
+####1.2.2 不会污染全局对象
+
+```javascript
+
+if(true){
+    let name = 'zfpx';
+}
+console.log(window.name);
+
+// 结果 undefined
+
+```
+
+####1.2.3 for循环中也可以使用i
+
+```javascript
+
+// 嵌套循环不会相互影响
+    for (let i = 0; i < 3; i++) {
+        console.log("out", i);
+        for (let i = 0; i < 2; i++) {
+            console.log("in", i);
+        }
+    }
+
+
+```
