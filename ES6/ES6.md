@@ -601,6 +601,124 @@ Array.prototype.copyWithin(target, start = 0, end = this.length) 覆盖目标的
 
 ### 7.3 Object.assign
 
+把多个对象的属性复制到一个对象中,第一个参数是复制的对象,从第二个参数开始往后,都是复制的源对象   **浅复制**
+
+	var nameObj = { name: 'killsos' };
+	var ageObj = { age: 8, add: { sex: 1 } };
+	var obj = {};
+	Object.assign(obj, nameObj, ageObj);
+	console.log(obj);
+	console.log(obj.add === ageObj.add); // true
+	//克隆对象
+	function clone(obj) {
+	    return Object.assign({}, obj);
+	}
+
+### 7.4 Object.setPrototypeOf
+将一个指定的对象的原型设置为另一个对象或者null
+	
+	var obj1  = {name:'killsos1'};
+	var obj2 =  {name:'killsos2'};
+	var obj = {};
+	Object.setPrototypeOf(obj,obj1);
+	console.log(obj.name);
+	console.log(Object.getPrototypeOf(obj));
+	Object.setPrototypeOf(obj,obj2);
+	console.log(obj.name);
+	console.log(Object.getPrototypeOf(obj));
+
+
+### 7.5 proto
+
+直接在对象表达式中设置prototype ES5之前是不可以 只有火狐浏览器实现这个功能
+
+	var obj1  = {name:'killsos'};
+	var obj3 = {
+	    __proto__:obj1
+	}
+	console.log(obj3.name);
+	console.log(Object.getPrototypeOf(obj3));
+
+
+## 8 类
+
+### 8.1 class
+使用class这个关键词定义一个类,基于这个类创建实例以后会自动执行constructor方法,此方法可以用来初始化
+
+	class Person {
+	    constructor(name){
+	        this.name = name;
+	    }
+	    getName(){
+	        console.log(this.name);
+	    }
+	}
+	let person = new Person('killsos');
+	person.getName();
+	
+
+### 8.2 get与set
+**getter**可以用来得获取属性，**setter**可以去设置属性
+
+	class Person {
+	    constructor(){
+	        this.hobbies = [];
+	    }
+	    set hobby(hobby){
+	        this.hobbies.push(hobby);
+	    }
+	    get hobby(){
+	        return this.hobbies;
+	    }
+	}
+	let person = new Person();
+	person.hobby = 'basketball';
+	person.hobby = 'football';
+	console.log(person.hobby);
+
+### 8.3 静态方法-static
+在类里面添加静态的方法可以使用**static**这个关键词，静态方法就是不需要实例化类就能使用的方法
+
+	class Person {
+	   static add(a,b){
+	       return a+b;
+	   }
+	}
+	console.log(Person.add(1,2));
+
+
+### 8.4 继承extends
+一个类可以去继承其它的类里的东西
+
+	class Person {
+	   constructor(name){
+	     this.name = name;
+	   }
+	}
+	class Teacher extends Person{
+	    constructor(name,age){
+	        super(name);
+	        this.age = age;
+	    }
+	}
+	var teacher = new Teacher('zfpx',8);
+	console.log(teacher.name,teacher.age);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
