@@ -704,6 +704,10 @@ Array.prototype.copyWithin(target, start = 0, end = this.length) 覆盖目标的
 	var teacher = new Teacher('zfpx',8);
 	console.log(teacher.name,teacher.age);
 
+## 生成器(Generator)与迭代器(Iterator)
+
+Generator是一个特殊的函数，执行它会返回一个Iterator对象。 通过遍历迭代器， Generator函数运行后会返回一个遍历器对象，而不是普通函数的返回值
+
 
 
 
