@@ -12,7 +12,7 @@
 
 Promise本意是承诺，在程序中的意思就是承诺我过一段时间后会给你一个结果。 什么时候会用到过一段时间？答案是异步操作，异步是指可能比较长时间才有结果的才做，例如网络请求、读取本地文件等  
   
-![alt text](./promise.jpg "Promise")
+![alt text](./promise.png "Promise")
 
   
 ## 3. Promise的三种状态
