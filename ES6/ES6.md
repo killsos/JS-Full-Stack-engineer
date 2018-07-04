@@ -475,16 +475,96 @@ Array.prototype.copyWithin(target, start = 0, end = this.length) 覆盖目标的
 
 	[1, 2, 3, 4, 5].copyWithin(0, 1, 2);
 	
-	// 
+	// [ 2, 2, 3, 4, 5 ]
+
+### 6.4 find
+
+查到满足条件第一个对应的元素
+
+	var array1 = [5, 12, 8, 130, 44];
+	
+	var found = array1.find(function(element) {
+	  return element > 10;
+	});
+	
+	console.log(found);
+
+### 6.5 findIndex
+
+查到满足条件第一个对应的元素的索引
+	
+	var array1 = [5, 12, 8, 130, 44];
+	
+	function findFirstLargeNumber(element) {
+	  return element > 13;
+	}
+	
+	console.log(array1.findIndex(findFirstLargeNumber));
 
 
+### 6.6 fill
+就是填充数组的意思 会更改原数组 Array.prototype.fill(value, start, end = this.length)
+
+    let arr = [1, 2, 3, 4, 5, 6];
+	
+    arr.fill('a', 1, 2);
+	
+    console.log(arr);
+	
 
 
+### 6.7 map
+
+遍历源数组然后返回一个新数组
+
+	var array1 = [1, 4, 9, 16];
+	
+	// pass a function to map
+	const map1 = array1.map(x => x * 2);
+	
+	console.log(map1);
+	// expected output: Array [2, 8, 18, 32]
 
 
+### 6.8 reduce
+对累加器和数组中的每个元素（从左到右）应用一个函数
+这个函数的return的返回值就是下一轮的accumulator
 
+	const array1 = [1, 2, 3, 4];
+	const reducer = (accumulator, currentValue) => {
+		console.log(accumulator);
+	  	return accumulator + currentValue;
+	}
+	// 1 + 2 + 3 + 4
+	console.log(array1.reduce(reducer));
+	// expected output: 10
+	
+	// 5 + 1 + 2 + 3 + 4
+	console.log(array1.reduce(reducer, 5));
+	// expected output: 15
 
+### 6.9 filter
+遍历源数组满足条件的元素 然后返回一个新数组
 
+	
+	 var words= ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+	 
+	const result = words.filter(word => word.length > 6);
+	
+	console.log(result);
+	// expected output: Array ["exuberant", "destruction", "present"]
+
+### 6.10 forEach
+数组的每个元素执行一次提供的函数
+
+	var array1 = ['a', 'b', 'c'];
+	
+	array1.forEach(function(element) {
+	  console.log(element);
+	});
+	
+
+## 7. 对象
 
 
 
