@@ -428,7 +428,7 @@ console.log(desc.name);  // descname
 
 ```javascript
 var person = {
-    name: 'zfpx',
+    name: 'killsos',
     getName: function() {
         setTimeout(function() { console.log(this); }, 1000);
         //在浏览器执行的话this指向window
@@ -566,10 +566,40 @@ Array.prototype.copyWithin(target, start = 0, end = this.length) 覆盖目标的
 
 ## 7. 对象
 
+### 7.1 对象字面量
 
+如果你想在对象里添加跟变量名一样的属性，并且属性的值就是变量表示的值就可以直接在对象里加上这些属性
 
+	let name = 'killsos';
+	let age = 18;
+	let getName = function(){
+	    console.log(this.name);
+	}
+	
+	let person = {
+	    name,
+	    age,
+	    getName
+	}
+	
+	
+	person.getName();
 
+### 7.2 Object.is
 
+对比两个值是否相等  与 === 效果相同 比较的是对象的内存地址
+
+	console.log(Object.is(NaN,NaN)); // true
+	
+	console.log(Object.is(null,null)); // true
+	
+	console.log(Object.is({name:'a'},{name:'a'})); // false
+	
+	let obj = {name:'a'};
+	
+	console.log(Object.is(obj,obj));  // true
+
+### 7.3 Object.assign
 
 
 
