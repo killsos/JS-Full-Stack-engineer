@@ -771,7 +771,29 @@ Generator是一个特殊的函数，执行它会返回一个Iterator对象。 �
 	books.clear();//清空 set
 	console.log(books.size);
 
-### 10.2 WeakMap
+### 10.2 weakSet
+与Set区别:  
+
+  - weakSet的成员只接受对象
+  
+  - weakSet的成员都是弱引用
+  
+	let obj = { name: 'killsos' };
+	let wm = new WeakSet();
+	wm.add(obj);
+	console.log(wm.has(obj));
+	obj = null;
+	console.log(wm.has(obj));
+
+### 10.3 Map
+
+存储键值对数据 特点:  
+
+- 对象也是存储键值对数据 键名只能是字符串
+
+- Map也是存储键值对数据 键名可以是字符串还可以是对象类型
+
+### 10.4 WeakMap
 
 与Map区别:  
 
@@ -780,6 +802,18 @@ Generator是一个特殊的函数，执行它会返回一个Iterator对象。 �
   - 键名所指向的对象不计入垃圾回收机制
   
   - 键名所引用对象都是弱引用
+ 
+	var books = new Map();
+	books.set('js',{name:'js'});//向map中添加元素
+	books.set('html',{name:'html'});
+	console.log(books.size);//查看集合中的元素
+	console.log(books.get('js'));//通过key获取值
+	books.delete('js');//执照key删除元素
+	console.log(books.has('js'));//判断map中有没有key
+	books.forEach((value, key) => { //forEach可以迭代map
+	    console.log( key + ' = ' + value);
+	});
+	books.clear();//清空map
   	
 **所谓弱引用**:    
 &nbsp;&nbsp;&nbsp;垃圾回收机制不将该引用考虑在内   
@@ -797,16 +831,107 @@ Generator是一个特殊的函数，执行它会返回一个Iterator对象。 �
 	console.log(wm.has(obj));
 
 
+## 11.模块
+可以根据应用的需求把代码分成不同的模块,每个模块里可以导出它需要让其它模块使用的东西,在其它模块里面可以导入这些模块导出的东西
+
+### 11.1 模块
+在浏览器中使用模块需要借助 导出
+
+	// school.js
+	export var name = 'killsos';
+	export var age = 18;
+
+导入  
+
+	//import {name,age} from './school.js';
+	import * as school from './school.js';
+	console.log(school.name,school.age);
+
+在页面中引用  
+
+	<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+	<script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+	<script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+	<script type="module" src="index.js"></script>
+
+### 11.2 重命名
+导出时重命名  
+
+	// school.js
+	function say(){
+	    console.log('say');
+	}
+	export {say as say2};
+	
+
+导入时重命名
+	
+	import {say2 as say3} from './school.js';
 
 
+### 11.3 默认导出
+每个模块都可以有一个默认要导出的东西 导出
+
+	// school.js
+	export default function say(){
+	    console.log('say');
+	}
+
+导入 
+
+	import say from './school.js';
 
 
+## 12 深度克隆
 
+	function extend(parent) {
+	  let child;
+	  if (Object.prototype.toString.call(parent) == '[object Object]') {
+	    child = {};
+	    for (let key in parent) {
+	      child[key] = extend(parent[key])
+	    }
+	  } else if (Object.prototype.toString.call(parent) == '[object Array]') {
+	    child = parent.map(item => extend(item));
+	  } else {
+	    return parent;
+	  }
+	  return child;
+	}
+	
+	function extendDeep(parent, child) {
+	  child = child || {};
+	  for (var key in parent) {
+	    if (typeof parent[key] === "object") {
+	      child[key] = (Object.prototype.toString.call(parent[key]) === "[object Array]") ? [] : {};
+	      extendDeep(parent[key], child[key]);
+	    } else {
+	      child[key] = parent[key];
+	    }
+	  }
+	  return child;
+	}
+	
+	深度克隆需要注意地方
+	[object Object]
+	[object Array]
+	[object Set]
+	[object WeakSet]
+	[object Map]
+	[object WeakMap]
 
+## 13 Symbol
 
+ES6 数据类型共7种 6 + 1
 
+string number boolean null undefind  **Symbol**
 
+object
 
-
-
-
+	console.log(typeof Symbol());  // symbol
+	
+	console.log(Object.prototype.toString.call(Symbol())); // [object Symbol]
+	
+	console.log(Object.prototype.toString.call(1)); // [object Number]
+	
+	注意 Object.prototype.toString.call 会将字面量转为对象
