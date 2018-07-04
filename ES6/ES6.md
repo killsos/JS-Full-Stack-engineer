@@ -750,9 +750,48 @@ Generator是一个特殊的函数，执行它会返回一个Iterator对象。 �
 	} while (!curr.done);
 
 
+## 10 集合
 
+### 10.1 Set
 
+一个Set是一堆东西的集合,Set有点像数组,不过跟数组不一样的是，Set里面不能有重复的内容 **内容的唯一性** 用来数组去重
 
+	var books = new Set();
+	books.add('js');
+	books.add('js');//添加重复元素集合的元素个数不会改变
+	books.add('html');
+	books.forEach(function(book){//循环集合
+	    console.log(book);
+	})
+	console.log(books.size);//集合中元数的个数
+	console.log(books.has('js'));//判断集合中是否有此元素
+	books.delete('js');//从集合中删除此元素
+	console.log(books.size);
+	console.log(books.has('js'));
+	books.clear();//清空 set
+	console.log(books.size);
+
+### 10.2 WeakMap
+
+与Map区别:  
+
+  - 只接受对象作为键名  
+  
+  - 键名所指向的对象不计入垃圾回收机制
+  
+  - 键名所引用对象都是弱引用
+  	
+**所谓弱引用**: 垃圾回收机制不将该引用考虑在内 只要所引用对象的其他引用被清除 垃圾回收机制就会释放该对象 所占用的内存 一旦不再需要 
+WeakMap里面的键名对象和所对应的键值对会自动消失 不用手动删除引用  
+
+	
+	
+	let obj = { name: 'killsos' };
+	let wm = new WeakMap();
+	wm.set(obj, 'killer');
+	console.log(wm.get(obj));
+	obj = null;
+	console.log(wm.has(obj));
 
 
 
